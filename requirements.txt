@@ -1,0 +1,38 @@
+# news_classification/
+# ├── data/
+# │   └── tokenized_data.csv     # 儲存斷詞結果，避免重複運算
+# ├── preprocess.py              # CKIP 斷詞 + 儲存
+# ├── train_baseline.py          # 載入 tokenized 資料訓練 baseline 模型
+# ├── evaluate.py                # 模型評估與可視化（可整合到 train 檔內）
+# ├── utils.py                   # 你想共用的小工具
+# └── requirements.txt
+
+# 基本資料處理
+pandas
+numpy
+
+# CKIP 斷詞
+ckip-transformers
+
+# Hugging Face Transformers 與 Datasets
+transformers
+datasets
+evaluate
+
+# Sklearn（模型評估與簡易 baseline）
+scikit-learn
+
+# 視覺化工具
+matplotlib
+seaborn
+
+# 開發環境穩定性設定
+torch
+accelerate
+
+# 忽略 WandB（可選）
+# wandb==0.0.0  # 或直接用 os.environ["WANDB_DISABLED"] = "true"
+
+# UTF-8 顯示支援（mac 中文字型可能需要額外手動設定）
+
+torch==2.1.2  # 或使用 pip 安裝時指定 +cu118 / +cpu 等
