@@ -29,6 +29,9 @@ combined_df = roberta_df[["label", "roberta_f1"]].merge(
 # === 4. 輸出合併結果 ===
 combined_df.to_csv("results/combined_f1_scores.csv", index=False, encoding="utf-8-sig")
 
+#刪除中港澳,公共政策
+# combined_df = combined_df[~combined_df["label"].isin(["中港澳", "公共政策"])].reset_index(drop=True)
+
 # === 5. 畫出三模型 F1-score 比較圖 ===
 plt.figure(figsize=(12, 8))
 x = range(len(combined_df))
@@ -45,5 +48,5 @@ plt.ylim(0, 1)
 plt.legend()
 plt.tight_layout()
 plt.grid(axis="y", linestyle="--", alpha=0.5)
-plt.savefig("results/f1_score_comparison.png", dpi=300)
+plt.savefig("results/f1_score_comparison-2.png", dpi=300)
 plt.show()
